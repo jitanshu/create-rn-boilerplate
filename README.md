@@ -48,6 +48,7 @@ The CLI will ask:
 | Git hooks | Husky + lint-staged | Lint on commit, test on push |
 | Env vars | react-native-config | Typed `.env` variables |
 | Icons | react-native-vector-icons | Icon sets |
+| Fonts | expo-font | Custom font loading with fallback support |
 
 ---
 
@@ -491,6 +492,19 @@ import MyIcon from '@/assets/svgs/my-icon.svg';
 
 ---
 
+## Custom Fonts
+
+Font files live in `src/assets/fonts/`. Inter is configured by default.
+
+**To swap fonts:**
+1. Drop your `.ttf` files in `src/assets/fonts/`
+2. Update font names in `src/theme/typography.ts`
+3. Update the `require()` paths in `src/app/index.tsx`
+
+**Download Inter:** [rsms.me/inter](https://rsms.me/inter)
+
+The app will not render until fonts are loaded — splash screen stays visible until fonts are ready, then hides automatically.
+
 ## Testing
 
 Tests are **colocated** with source files:
@@ -579,6 +593,7 @@ import { Button } from '../../../components/common/Button';
 | No raw fetch/axios in components | Always use RTK Query endpoints |
 | No `process.env` | Always use `react-native-config` Config object |
 | Forms | Always React Hook Form + Zod, never uncontrolled inputs |
+| No raw RN fonts | Always load via `expo-font`, define in `theme/typography.ts` |
 
 ---
 
