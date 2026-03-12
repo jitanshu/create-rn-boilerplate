@@ -186,6 +186,8 @@ async function main() {
   process.stdout.write('                                                      \r');
   log.success('All versions resolved');
 
+  devDepVersions['eslint'] = '^9.0.0';
+
   const pkgJson = {
     name: packageName, version: '0.0.1', private: true, main: 'index.js',
     scripts: {
