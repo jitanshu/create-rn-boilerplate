@@ -113,7 +113,7 @@ function patchDir(dir, replacements) {
 
 const PACKAGES = {
   deps: [
-    'expo', '@react-navigation/native', '@react-navigation/native-stack',
+    'expo', 'expo-font', '@react-navigation/native', '@react-navigation/native-stack',
     '@react-navigation/bottom-tabs', 'react-native-screens',
     'react-native-safe-area-context', '@reduxjs/toolkit', 'react-redux',
     'react-native-mmkv', 'nativewind', 'tailwindcss', 'react-native-svg',
