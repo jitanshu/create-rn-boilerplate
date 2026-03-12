@@ -1,8 +1,9 @@
-import Config from 'react-native-config';
+import Constants from 'expo-constants';
+
+const extra = Constants.expoConfig?.extra ?? {};
 
 export const APP_CONFIG = {
-  env:        Config.APP_ENV ?? 'development',
-  apiBaseUrl: Config.API_BASE_URL ?? 'https://api.example.com',
+  env:        extra.APP_ENV ?? 'development',
+  apiBaseUrl: extra.API_BASE_URL ?? 'https://api.example.com',
   isDev:      __DEV__,
-  sentryDsn:  Config.SENTRY_DSN,
 } as const;

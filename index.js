@@ -119,7 +119,7 @@ const PACKAGES = {
     'react-native-mmkv', 'nativewind', 'tailwindcss', 'react-native-svg',
     'i18next', 'react-i18next', 'react-hook-form', '@hookform/resolvers', 'zod',
     'react-native-toast-message', 'expo-splash-screen',
-    'react-native-config', 'react-native-vector-icons',
+    'expo-constants', 'react-native-vector-icons',
     'class-variance-authority', 'clsx', 'axios',
   ],
   devDeps: [
@@ -187,6 +187,7 @@ async function main() {
   log.success('All versions resolved');
 
   devDepVersions['eslint'] = '^9.0.0';
+  depVersions['nativewind'] = '^5.0.0-preview.2';
 
   const pkgJson = {
     name: packageName, version: '0.0.1', private: true, main: 'index.js',

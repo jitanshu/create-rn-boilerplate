@@ -23,8 +23,11 @@
       "package": "{{BUNDLE_ID}}"
     },
     "plugins": [
-      "expo-splash-screen",
-      "react-native-config"
-    ]
+      "expo-splash-screen"
+    ],
+    "extra": {
+      "API_BASE_URL": "https://api.example.com",
+      "APP_ENV": "development"
+    }
   }
 }
