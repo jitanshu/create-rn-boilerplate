@@ -10,7 +10,7 @@
     "react-native", "expo", "boilerplate", "typescript",
     "nativewind", "redux", "react-navigation", "starter"
   ],
-  "author": "{{YOUR_NAME}}",
+  "author": "Jitanshu",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
