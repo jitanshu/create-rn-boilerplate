@@ -7,7 +7,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // ── Common RN mocks ────────────────────────────────────────────────────────────
-jest.mock('react-native-splash-screen', () => ({ hide: jest.fn(), show: jest.fn() }));
+jest.mock('expo-splash-screen', () => ({ hide: jest.fn(), show: jest.fn() }));
 jest.mock('react-native-mmkv', () => ({
   MMKV: jest.fn().mockImplementation(() => ({
     getString:  jest.fn(),

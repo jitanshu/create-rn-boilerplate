@@ -40,7 +40,7 @@ The CLI will ask:
 | Forms | React Hook Form + Zod | Best-in-class validation, zero re-renders |
 | i18n | i18next + react-i18next | Multi-language with typed keys |
 | Toast | react-native-toast-message | Customised success / error / info toasts |
-| Splash | react-native-splash-screen | Native splash, dismissed on app ready |
+| Splash | expo-splash-screen | Native splash, dismissed on app ready |
 | SVG | react-native-svg + transformer | Import `.svg` files as React components |
 | HTTP | Axios | Request/response interceptors |
 | Testing | Jest + jest-expo + RNTL + MSW | Real tests, real assertions |

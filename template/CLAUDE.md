@@ -19,7 +19,7 @@
 | Forms | React Hook Form + Zod schemas in `src/utils/validators.ts` |
 | i18n | i18next — resources in `src/i18n/resources/{lang}/translation.json` |
 | Toast | react-native-toast-message — config in `src/components/common/Toast/` |
-| Splash | react-native-splash-screen — hidden in `src/app/index.tsx` |
+| Splash | expo-splash-screen — hidden in `src/app/index.tsx` |
 | SVG | react-native-svg + transformer — all SVGs in `src/assets/svgs/` |
 | Testing | Jest + jest-expo + RNTL + MSW |
 | Code gen | Plop.js — `npm run generate` |

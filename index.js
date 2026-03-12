@@ -118,7 +118,7 @@ const PACKAGES = {
     'react-native-safe-area-context', '@reduxjs/toolkit', 'react-redux',
     'react-native-mmkv', 'nativewind', 'tailwindcss', 'react-native-svg',
     'i18next', 'react-i18next', 'react-hook-form', '@hookform/resolvers', 'zod',
-    'react-native-toast-message', 'react-native-splash-screen',
+    'react-native-toast-message', 'expo-splash-screen',
     'react-native-config', 'react-native-vector-icons',
     'class-variance-authority', 'clsx', 'axios',
   ],

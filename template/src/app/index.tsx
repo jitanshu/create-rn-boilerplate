@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFonts } from 'expo-font';
-import SplashScreen from 'react-native-splash-screen';
+import * as SplashScreen from 'expo-splash-screen';
 import { Providers } from './providers';
 import { RootNavigator } from '@/navigation/RootNavigator';
 
@@ -13,7 +13,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    if (fontsLoaded) SplashScreen.hide();
+    if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded]);
 
   if (!fontsLoaded) return null;
