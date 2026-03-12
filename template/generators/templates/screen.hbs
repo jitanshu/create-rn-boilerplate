@@ -1,0 +1,14 @@
+import React from 'react';
+import { View } from 'react-native';
+import { Screen } from '@/components/layout/Screen';
+import { AppText } from '@/components/common/Text';
+
+export function {{pascalCase name}}Screen() {
+  return (
+    <Screen testID="{{camelCase name}}-screen">
+      <View className="flex-1 px-6 justify-center items-center">
+        <AppText variant="h2">{{pascalCase name}}</AppText>
+      </View>
+    </Screen>
+  );
+}

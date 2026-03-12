@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "{{APP_NAME}}",
+    "slug": "{{PACKAGE_NAME}}",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "{{BUNDLE_ID}}"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "{{BUNDLE_ID}}"
+    },
+    "plugins": [
+      "expo-splash-screen",
+      "react-native-config"
+    ]
+  }
+}

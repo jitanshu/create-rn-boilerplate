@@ -1,0 +1,15 @@
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import { {{pascalCase name}}Screen } from './{{pascalCase name}}Screen';
+
+describe('{{pascalCase name}}Screen', () => {
+  it('renders without crashing', () => {
+    const { getByTestId } = render(<{{pascalCase name}}Screen />);
+    expect(getByTestId('{{camelCase name}}-screen')).toBeTruthy();
+  });
+
+  it('renders expected content', () => {
+    const { getByText } = render(<{{pascalCase name}}Screen />);
+    expect(getByText('{{pascalCase name}}')).toBeTruthy();
+  });
+});

@@ -1,0 +1,23 @@
+{
+  "name": "create-rn-boilerplate",
+  "version": "1.0.0",
+  "description": "Production-ready React Native boilerplate — Expo Bare, 2026 stack",
+  "main": "index.js",
+  "bin": {
+    "create-rn-boilerplate": "./index.js"
+  },
+  "keywords": [
+    "react-native", "expo", "boilerplate", "typescript",
+    "nativewind", "redux", "react-navigation", "starter"
+  ],
+  "author": "{{YOUR_NAME}}",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "template"
+  ],
+  "dependencies": {}
+}

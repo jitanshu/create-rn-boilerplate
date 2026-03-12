@@ -1,0 +1,25 @@
+import {{camelCase name}}Reducer, { setLoading, setError, reset } from './{{camelCase name}}Slice';
+
+describe('{{camelCase name}}Slice', () => {
+  const initialState = { isLoading: false, error: null };
+
+  it('returns initial state', () => {
+    expect({{camelCase name}}Reducer(undefined, { type: '@@INIT' })).toEqual(initialState);
+  });
+
+  it('setLoading sets isLoading', () => {
+    const state = {{camelCase name}}Reducer(initialState, setLoading(true));
+    expect(state.isLoading).toBe(true);
+  });
+
+  it('setError sets error message', () => {
+    const state = {{camelCase name}}Reducer(initialState, setError('Something failed'));
+    expect(state.error).toBe('Something failed');
+  });
+
+  it('reset returns to initial state', () => {
+    const modified = { isLoading: true, error: 'oops' };
+    const state = {{camelCase name}}Reducer(modified, reset());
+    expect(state).toEqual(initialState);
+  });
+});

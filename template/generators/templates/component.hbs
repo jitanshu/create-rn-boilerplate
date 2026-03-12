@@ -1,0 +1,15 @@
+import React from 'react';
+import { View, ViewStyle } from 'react-native';
+
+export interface {{pascalCase name}}Props {
+  style?: ViewStyle;
+  testID?: string;
+}
+
+export function {{pascalCase name}}({ style, testID = '{{camelCase name}}' }: {{pascalCase name}}Props) {
+  return (
+    <View testID={testID} style={style}>
+      {/* {{pascalCase name}} */}
+    </View>
+  );
+}

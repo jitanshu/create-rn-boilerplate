@@ -1,0 +1,38 @@
+{
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "noInternet": "No internet connection"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "loginSuccess": "Welcome back!",
+    "logoutSuccess": "Logged out successfully"
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome, {{name}}"
+  },
+  "validation": {
+    "required": "This field is required",
+    "emailInvalid": "Enter a valid email",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordMatch": "Passwords do not match"
+  }
+}
