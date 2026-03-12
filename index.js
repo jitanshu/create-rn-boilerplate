@@ -17,17 +17,24 @@ const log = {
   info: (msg) => console.log(`${c.cyan}ℹ${c.reset}  ${msg}`),
   success: (msg) => console.log(`${c.green}✔${c.reset}  ${msg}`),
   error: (msg) => console.log(`${c.red}✖${c.reset}  ${msg}`),
+  warn: (msg) => console.log(`${c.yellow}⚠${c.reset}  ${msg}`),
   step: (n, msg) => console.log(`\n${c.bold}${c.blue}[${n}]${c.reset} ${c.bold}${msg}${c.reset}`),
   dim: (msg) => console.log(`    ${c.dim}${msg}${c.reset}`),
   banner: () => console.log(`
-${c.cyan}${c.bold}  ██████╗ ███╗   ██╗    ██████╗  ██████╗ ██╗██╗     ███████╗██████╗ ${c.reset}
-${c.cyan}${c.bold} ██╔══██╗████╗  ██║    ██╔══██╗██╔═══██╗██║██║     ██╔════╝██╔══██╗${c.reset}
-${c.cyan}${c.bold} ██████╔╝██╔██╗ ██║    ██████╔╝██║   ██║██║██║     █████╗  ██████╔╝${c.reset}
-${c.cyan}${c.bold} ██╔══██╗██║╚██╗██║    ██╔══██╗██║   ██║██║██║     ██╔══╝  ██╔══██╗${c.reset}
-${c.cyan}${c.bold} ██║  ██║██║ ╚████║    ██████╔╝╚██████╔╝██║███████╗███████╗██║  ██║${c.reset}
-${c.cyan}${c.bold} ╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝${c.reset}
-${c.dim}  Production-ready React Native · Expo Bare · 2026 Stack${c.reset}
-`),
+    ${c.cyan}${c.bold}     ██╗██╗████████╗ █████╗ ███╗   ██╗${c.reset}
+    ${c.cyan}${c.bold}     ██║██║╚══██╔══╝██╔══██╗████╗  ██║${c.reset}
+    ${c.cyan}${c.bold}     ██║██║   ██║   ███████║██╔██╗ ██║${c.reset}
+    ${c.cyan}${c.bold}██   ██║██║   ██║   ██╔══██║██║╚██╗██║${c.reset}
+    ${c.cyan}${c.bold}╚█████╔╝██║   ██║   ██║  ██║██║ ╚████║${c.reset}
+    ${c.cyan}${c.bold} ╚════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝${c.reset}
+    ${c.cyan}${c.bold}  ██████╗  ██████╗ ██╗██╗     ███████╗██████╗ ██████╗ ██╗      █████╗ ████████╗███████╗${c.reset}
+    ${c.cyan}${c.bold}  ██╔══██╗██╔═══██╗██║██║     ██╔════╝██╔══██╗██╔══██╗██║     ██╔══██╗╚══██╔══╝██╔════╝${c.reset}
+    ${c.cyan}${c.bold}  ██████╔╝██║   ██║██║██║     █████╗  ██████╔╝██████╔╝██║     ███████║   ██║   █████╗  ${c.reset}
+    ${c.cyan}${c.bold}  ██╔══██╗██║   ██║██║██║     ██╔══╝  ██╔══██╗██╔═══╝ ██║     ██╔══██║   ██║   ██╔══╝  ${c.reset}
+    ${c.cyan}${c.bold}  ██████╔╝╚██████╔╝██║███████╗███████╗██║  ██║██║     ███████╗██║  ██║   ██║   ███████╗${c.reset}
+    ${c.cyan}${c.bold}  ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝${c.reset}
+    ${c.dim}  Production-ready React Native · Expo Bare · 2026 Stack${c.reset}
+    `),
 };
 
 function prompt(question, defaultVal = '') {
@@ -55,6 +62,11 @@ function promptSelect(question, options, defaultIdx = 0) {
       resolve(options[idx >= 0 && idx < options.length ? idx : defaultIdx]);
     });
   });
+}
+
+function isInstalled(tool) {
+  const result = spawnSync(tool, ['--version'], { shell: true, stdio: 'pipe' });
+  return result.status === 0;
 }
 
 function run(cmd, cwd) {
@@ -203,8 +215,15 @@ async function main() {
   log.success('package.json written');
 
   log.step(4, `Installing with ${pkgManager}...`);
-  run(pkgManager === 'yarn' ? 'yarn' : pkgManager === 'bun' ? 'bun install' : 'npm install', targetDir);
-  log.success('Dependencies installed');
+  let manager = pkgManager;
+  if (manager === 'yarn' && !isInstalled('yarn')) {
+    log.warn(`yarn not found — falling back to npm`);
+    manager = 'npm';
+  } else if (manager === 'bun' && !isInstalled('bun')) {
+    log.warn(`bun not found — falling back to npm`);
+    manager = 'npm';
+  }
+  run(manager === 'yarn' ? 'yarn' : manager === 'bun' ? 'bun install' : 'npm install', targetDir);
 
   log.step(5, 'Initialising git + Husky hooks...');
   run('git init', targetDir);
