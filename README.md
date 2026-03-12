@@ -9,7 +9,7 @@ A fully configured, scalable React Native starter built for developers who don't
 ## Quick Start
 
 ```bash
-npx create-rn-boilerplate
+npx create-jitan-boilerplate
 ```
 
 The CLI will ask:
